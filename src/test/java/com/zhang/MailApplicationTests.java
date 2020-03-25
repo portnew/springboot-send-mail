@@ -1,13 +1,16 @@
 package com.zhang;
 
-import com.zhang.service.MailServiceImpl;
-import com.zhang.service.Mailservice;
+import com.zhang.service.MailServiceImpl2;
+import com.zhang.service.Mailservice1;
 import com.zhang.vo.MailVo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
+import javax.print.attribute.standard.Severity;
 
 /**
  * @ClassName MailApplicationTests
@@ -21,7 +24,7 @@ public class MailApplicationTests {
     private JavaMailSenderImpl mailSender;
 
     @Autowired
-    private Mailservice mailservice;
+    private Mailservice1 mailservice;
     String to = "865383353@qq.com";
     String subject = "来自SpringBoot";
     String content = "Happy EveryDay";
@@ -41,7 +44,7 @@ public class MailApplicationTests {
     }
 
     @Autowired
-    MailServiceImpl service;
+    MailServiceImpl2 service;
     @Test
     public void sendMail() {
         MailVo message = new MailVo();
@@ -50,5 +53,15 @@ public class MailApplicationTests {
         message.setText(content);
         message.setSubject(subject);
         service.sendMail(message);
+    }
+    @Test
+    public void sendMimeMail(){
+        MailVo message = new MailVo();
+        message.setFrom(service.getMailSendFrom());
+        message.setTo(to);
+        message.setText(content);
+        message.setSubject(subject);
+        message.setFilePath("C:\\Users\\PSDZ\\Desktop\\新建文本文档.txt");
+        service.sendMimeMail(message);
     }
 }

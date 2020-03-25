@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import com.zhang.service.MailServiceImpl;
+import com.zhang.service.MailServiceImpl2;
 import com.zhang.vo.MailVo;
 
 /**
@@ -18,7 +18,7 @@ import com.zhang.vo.MailVo;
 @RestController
 public class MailController {
     @Autowired
-    private MailServiceImpl mailService;
+    private MailServiceImpl2 mailService;
 
     /**
      * 发送邮件的主界面

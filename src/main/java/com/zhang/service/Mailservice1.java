@@ -6,7 +6,7 @@ package com.zhang.service;
  * @Author zhy
  * @Date 2020/3/25 8:23
  */
-public interface Mailservice {
+public interface Mailservice1 {
     /**
      * 发送文本邮件
      * @param to

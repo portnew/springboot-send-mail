@@ -22,7 +22,7 @@ import java.io.File;
  * @Date 2020/3/25 8:28
  */
 @Service
-public class MailserviceImpl2 implements Mailservice {
+public class MailserviceImpl1 implements Mailservice1 {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**

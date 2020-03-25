@@ -2,8 +2,10 @@ package com.zhang.vo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.Date;
 
 /**
@@ -25,7 +27,11 @@ public class MailVo {
     private String bcc;//密送（多个邮箱则用逗号","隔开）
     private String status;//状态
     private String error;//报错信息
+
+    private String filePath;//本地上传的文件路径
     @JsonIgnore
-    private MultipartFile[] multipartFiles;//邮件附件
+    private MultipartFile[] multipartFiles;//邮件附件 接收从前台传入
+
+
     //省略GET&SET方法
 }
